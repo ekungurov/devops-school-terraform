@@ -18,9 +18,9 @@ resource "aws_instance" "app_server" {
   ami             = "ami-030e490c34394591b"
   instance_type   = "t2.micro"
   security_groups = ["default", "epam-by-ru"]
+  key_name        = "YK_DevOps_School"
 
   tags = {
-    Name  = "YK-ExampleInstance"
     owner = "yevgeny_kungurov@epam.com"
   }
 }
