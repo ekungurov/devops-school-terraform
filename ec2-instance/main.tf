@@ -14,6 +14,21 @@ provider "aws" {
   region  = "eu-central-1"
 }
 
+/*
+data "aws_security_group" "selected" {
+  id = "sg-8d0f0dfe"
+}
+
+resource "aws_security_group" "new" {
+  id = data.aws_security_group.selected.id
+  ingress {
+    from_port = 0
+    protocol  = ""
+    to_port   = 0
+  }
+}
+*/
+
 resource "aws_instance" "app_server" {
   ami             = "ami-030e490c34394591b"
   instance_type   = "t2.micro"
