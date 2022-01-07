@@ -5,7 +5,7 @@ module "eks" {
   cluster_name    = local.cluster_name
   cluster_version = "1.21"
   vpc_id          = module.vpc.vpc_id
-  subnets         = module.vpc.private_subnets
+  subnets         = module.vpc.public_subnets
 
   manage_worker_iam_resources = false
   manage_cluster_iam_resources = false
