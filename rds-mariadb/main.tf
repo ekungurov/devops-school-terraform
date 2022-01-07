@@ -50,7 +50,7 @@ resource "aws_security_group" "rds" {
 
 resource "aws_db_parameter_group" "education" {
   name   = "education"
-  family = "mysql5.7"
+  family = "mariadb10.4"
 
   parameter {
     name  = "character_set_server"
@@ -66,9 +66,9 @@ resource "aws_db_parameter_group" "education" {
 resource "aws_db_instance" "education" {
   identifier             = "education"
   instance_class         = "db.t2.micro"
-  allocated_storage      = 10
-  engine                 = "mysql"
-  engine_version         = "5.7"
+  allocated_storage      = 20
+  engine                 = "mariadb"
+  engine_version         = "10.4"
   username               = "edu"
   password               = var.db_password
   db_subnet_group_name   = aws_db_subnet_group.education.name
