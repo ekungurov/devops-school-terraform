@@ -7,6 +7,10 @@ terraform {
   }
 
   required_version = ">= 0.14.9"
+
+  backend "local" {
+    path = "../terraform.tfstate"
+  }
 }
 
 provider "aws" {
@@ -17,8 +21,8 @@ provider "aws" {
 resource "aws_instance" "app_server" {
   ami                    = "ami-030e490c34394591b"
   instance_type          = "t2.micro"
-  vpc_security_group_ids = ["sg-8d0f0dfe", "sg-0a8b5db2a7dcca42a"]
-  key_name               = "YK_DevOps_School"
+  vpc_security_group_ids = ["sg-0d8622a1aab1b77ce", "sg-04c43975b00d95343"]
+  key_name               = "yk-my-aws-keypair"
 
   tags = {
     owner = "yevgeny_kungurov@epam.com"
